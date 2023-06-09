@@ -47,7 +47,7 @@ const NavBar = () => {
 
     return (
 
-        <nav className='bg-gray-500 fixed top-0 left-0 right-0 z-50 shadow-lg'>
+        <nav className='bg-gray-500 fixed top-0 left-0 right-0 z-50 shadow-xl'>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
