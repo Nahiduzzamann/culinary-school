@@ -96,12 +96,12 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li className="text-gray-300 hover:bg-gray-700 py-2 rounded-md text-sm font-medium"><NavLink
+                        <li className="text-gray-300 hover:bg-gray-700 py-2 mx-2 rounded-md text-sm font-medium"><NavLink
                             to="/"
                         >
                             Home
                         </NavLink></li>
-                        <li className="text-gray-300 hover:bg-gray-700 py-2 rounded-md text-sm font-medium">
+                        <li className="text-gray-300 hover:bg-gray-700 py-2 mx-2 rounded-md text-sm font-medium">
                             <NavLink
                                 to="/Instructors"
 
@@ -110,7 +110,7 @@ const NavBar = () => {
                             </NavLink>
                         </li>
 
-                        <li className="text-gray-300 hover:bg-gray-700 py-2 rounded-md text-sm font-medium">
+                        <li className="text-gray-300 hover:bg-gray-700 py-2 mx-2 rounded-md text-sm font-medium">
                             <NavLink
                                 to="/Classes"
 
@@ -119,7 +119,7 @@ const NavBar = () => {
                             </NavLink></li>
                         {
                             user &&
-                            <li className="text-gray-300 hover:bg-gray-700 py-2 rounded-md text-sm font-medium">
+                            <li className="text-gray-300 hover:bg-gray-700 py-2 mx-2 rounded-md text-sm font-medium">
                                 <NavLink
                                     to="/Dashboard"
 
