@@ -56,7 +56,7 @@ const PopularClassesSection = () => {
   return (
     <div className="container mx-auto my-8">
       <h2 className="text-2xl font-semibold mb-4 text-center">Popular Classes</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {topClasses.map((classItem) => (
           <div key={classItem.id} className="bg-white rounded shadow overflow-hidden">
             <img src={classItem.image} alt={classItem.title} className="w-full h-40 object-cover" />
