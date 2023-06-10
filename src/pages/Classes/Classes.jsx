@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import useCart from '../../hooks/useCart';
 
 const Classes = () => {
     const { user } = useContext(AuthContext);
-const navigate = useNavigate()
-const location = useLocation()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const [, refetch] = useCart()
     // Dummy data for classes
     const classes = [
         {
@@ -75,14 +77,14 @@ const location = useLocation()
     ];
 
     const handleSelectClass = (classItem) => {
-       const { availableSeats, approved,name, image,instructor, price } = classItem
+        const { availableSeats, approved, name, image, instructor, price } = classItem
         if (!user) {
             alert('Please log in to select the course.');
             return;
         }
 
         if (user && user.email) {
-            const cartItem = { availableSeats, approved,name, image,instructor, price, email: user.email }
+            const cartItem = { availableSeats, approved, name, image, instructor, price, email: user.email }
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
@@ -93,7 +95,7 @@ const location = useLocation()
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
-                        // refetch(); // refetch cart to update the number of items in the cart
+                        refetch();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
