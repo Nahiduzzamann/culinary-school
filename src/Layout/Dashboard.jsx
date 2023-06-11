@@ -34,16 +34,16 @@ const Dashboard = () => {
         } else if (userRole === 'instructor') {
             return [
                 <li key="addClass">
-                    <Link to="/add-class">Add a Class</Link>
+                    <Link to="dashboard/add-class">Add a Class</Link>
                 </li>,
                 <li key="myClasses">
-                    <Link to="/my-classes">My Classes</Link>
+                    <Link to="dashboard/my-classes">My Classes</Link>
                 </li>,
             ];
         } else if (userRole === 'admin') {
             return [
                 <li key="manageClasses">
-                    <Link to="/manage-classes">Manage Classes</Link>
+                    <Link to="dashboard/manage-classes">Manage Classes</Link>
                 </li>,
                 <li key="manageUsers">
                     <Link to="dashboard/manage-users">Manage Users</Link>
