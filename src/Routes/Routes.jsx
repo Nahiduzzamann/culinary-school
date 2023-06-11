@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children:[
             {
-                path:'StudentSelectedClasses',
+                path:'dashboard/selected-classes',
                 element:<StudentSelectedClasses></StudentSelectedClasses>
             }
         ]
