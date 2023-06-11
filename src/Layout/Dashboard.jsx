@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Dashboard = () => {
-    // Simulated user role, replace with your actual user role logic
-    const userRole = 'admin'; // 'general', 'instructor', 'admin'
+    const {user} = useContext(AuthContext)
+    const [currentUser,setCurrentUser]= useState([]); //current user from DB
+    useEffect(() => {
+        // Fetch all users from the database
+        const fetchUsers = async () => {
+            try {
+                const response = await fetch(`http://localhost:5000/user/${user.email}`);
+                const data = await response.json();
+                setCurrentUser(data);
+            } catch (error) {
+                console.error('Error fetching users:', error);
+            }
+        };
 
+        fetchUsers();
+    }, [user]);
+    // const userRole = 'admin'
+    const userRole = currentUser.user?.role || 'general'; // 'general', 'instructor', 'admin'
     const getMenuItems = () => {
         if (userRole === 'general') {
             return [
