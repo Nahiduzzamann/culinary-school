@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     // Simulated user role, replace with your actual user role logic
-    const userRole = 'general'; // 'general', 'instructor', 'admin'
+    const userRole = 'admin'; // 'general', 'instructor', 'admin'
 
     const getMenuItems = () => {
         if (userRole === 'general') {
@@ -30,7 +30,7 @@ const Dashboard = () => {
                     <Link to="/manage-classes">Manage Classes</Link>
                 </li>,
                 <li key="manageUsers">
-                    <Link to="/manage-users">Manage Users</Link>
+                    <Link to="dashboard/manage-users">Manage Users</Link>
                 </li>,
             ];
         } else {

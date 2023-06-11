@@ -70,13 +70,13 @@ const Registration = () => {
                                             showConfirmButton: false,
                                             timer: 1500
                                         });
-                                        navigate('/');
+                                        navigate(from, { replace: true });
+
                                     }
                                 })
                         })
                         .catch((error) => { });
 
-                    navigate(from, { replace: true });
                 })
                 .catch((error) => setErrorMessage(error.message));
         }
