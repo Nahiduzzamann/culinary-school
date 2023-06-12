@@ -1,6 +1,7 @@
 import React from 'react';
 import useCart from '../../../hooks/useCart';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const StudentSelectedClasses = () => {
     const [cart, refetch] = useCart();
@@ -58,7 +59,10 @@ const StudentSelectedClasses = () => {
                                 >
                                     Delete
                                 </button>
+                                <Link to={`/Dashboard/payment/${classItem.price}`}>
                                 <button className="btn btn-primary">Pay</button>
+
+                                </Link>
                             </div>
                         ))}
                     </div>
