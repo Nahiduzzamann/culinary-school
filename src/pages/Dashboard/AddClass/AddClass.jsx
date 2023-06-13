@@ -23,7 +23,7 @@ const AddClass = () => {
 
     try {
       // Perform API call to add the class to the database
-      await fetch('https://bangali-ranna.vercel.app/instructorClass', {
+      await fetch('http://localhost:5000/instructorClass', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

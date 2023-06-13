@@ -10,7 +10,7 @@ const ManageClasses = () => {
     // Fetch all classes from the database
     const fetchClasses = async () => {
       try {
-        const response = await fetch('https://bangali-ranna.vercel.app/instructorClass');
+        const response = await fetch('http://localhost:5000/instructorClass');
         const data = await response.json();
         setClasses(data);
       } catch (error) {
@@ -24,7 +24,7 @@ const ManageClasses = () => {
   const handleApprove = async (classId) => {
     try {
       // Update the class status to approved in the database
-      await fetch(`https://bangali-ranna.vercel.app/instructorClass/${classId}`, {
+      await fetch(`http://localhost:5000/instructorClass/${classId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const ManageClasses = () => {
   const handleDeny = async (classId) => {
     try {
       // Update the class status to denied in the database
-      await fetch(`https://bangali-ranna.vercel.app/instructorClass/${classId}`, {
+      await fetch(`http://localhost:5000/instructorClass/${classId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ const ManageClasses = () => {
   const handleSubmitFeedback = async () => {
     try {
       // Update the class with admin feedback in the database
-      await fetch(`https://bangali-ranna.vercel.app/instructorClassFeedback/${selectedClassId}`, {
+      await fetch(`http://localhost:5000/instructorClassFeedback/${selectedClassId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

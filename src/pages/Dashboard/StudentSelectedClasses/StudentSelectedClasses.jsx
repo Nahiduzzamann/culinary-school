@@ -17,7 +17,7 @@ const StudentSelectedClasses = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://bangali-ranna.vercel.app/carts/${classItem._id}`, {
+        fetch(`http://localhost:5000/carts/${classItem._id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())
@@ -44,36 +44,26 @@ const StudentSelectedClasses = () => {
                 key={classItem._id}
                 className={`bg-white p-6 rounded shadow ${classItem.availableSeats === 0 ? 'bg-red-100' : ''}`}
               >
-                <table className="w-full">
-                  <tbody>
-                    <tr>
-                      <td className="font-semibold">Name:</td>
-                      <td>{classItem.name}</td>
-                    </tr>
-                    <tr>
-                      <td className="font-semibold">Instructor:</td>
-                      <td>{classItem.instructor}</td>
-                    </tr>
-                    <tr>
-                      <td className="font-semibold">Available Seats:</td>
-                      <td>{classItem.availableSeats}</td>
-                    </tr>
-                    <tr>
-                      <td className="font-semibold">Price:</td>
-                      <td>${classItem.price}</td>
-                    </tr>
-                    <tr>
-                      <td colSpan="2" className="flex justify-end mt-4">
-                        <button className="btn btn-primary mr-2" onClick={() => handleDelete(classItem)}>
-                          Delete
-                        </button>
-                        <Link to={`/Dashboard/payment/${classItem._id}`}>
-                          <button className="btn btn-primary">Pay</button>
-                        </Link>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div className="font-semibold mb-2">Name:</div>
+                <div>{classItem.name}</div>
+
+                <div className="font-semibold mb-2">Instructor:</div>
+                <div>{classItem.instructor}</div>
+
+                <div className="font-semibold mb-2">Available Seats:</div>
+                <div>{classItem.availableSeats}</div>
+
+                <div className="font-semibold mb-2">Price:</div>
+                <div>${classItem.price}</div>
+
+                <div className="flex justify-end mt-4">
+                  <button className="btn btn-primary mr-2" onClick={() => handleDelete(classItem)}>
+                    Delete
+                  </button>
+                  <Link to={`/Dashboard/payment/${classItem._id}`}>
+                    <button className="btn btn-primary">Pay</button>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
