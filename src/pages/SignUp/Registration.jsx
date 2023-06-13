@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import Spinner from '../Login/Spinner';
 
 const Registration = () => {
     const { createUser, updateUser } = useContext(AuthContext);
@@ -9,6 +10,7 @@ const Registration = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -43,11 +45,14 @@ const Registration = () => {
             setErrorMessage('Passwords do not match');
         } else {
             const info = { displayName: name, photoURL: photoUrl };
+            setIsLoading(true);
 
             createUser(email, password)
                 .then((result) => {
                     setErrorMessage('');
                     const user = result.user;
+                    setIsLoading(false);
+                    navigate(from, { replace: true });
 
                     updateUser(info)
                         .then((result) => {
@@ -75,10 +80,15 @@ const Registration = () => {
                                     }
                                 })
                         })
-                        .catch((error) => { });
+                        .catch((error) => {
+                            setIsLoading(false);
+                        });
 
                 })
-                .catch((error) => setErrorMessage(error.message));
+                .catch((error) => {
+                    setIsLoading(false);
+                    setErrorMessage(error.message)
+                });
         }
     };
 
@@ -157,8 +167,9 @@ const Registration = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary w-full mb-4">
-                        Register
+                    <button type="submit" className="btn btn-primary w-full mb-4" disabled={isLoading}>
+
+                        {isLoading ? <Spinner /> : 'Register'}
                     </button>
                     <p className="mt-2">
                         Already have an account?{' '}
