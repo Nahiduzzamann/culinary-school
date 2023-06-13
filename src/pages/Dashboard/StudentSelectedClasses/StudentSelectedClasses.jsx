@@ -32,7 +32,7 @@ const StudentSelectedClasses = () => {
   };
 
   return (
-    <div className="py-12 w-full ">
+    <div className="py-12 w-full p-2">
       <div className="container mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-8">Selected Classes ({cart.length})</h2>
         {cart.length === 0 ? (
