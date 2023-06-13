@@ -7,7 +7,7 @@ const Instructors = () => {
     // Fetch the instructor's classes from the API
     const fetchInstructorClasses = async () => {
       try {
-        const response = await fetch('http://localhost:5000/classes/approved');
+        const response = await fetch('https://bangali-ranna.vercel.app/classes/approved');
         const data = await response.json();
         setInstructors(data);
       } catch (error) {

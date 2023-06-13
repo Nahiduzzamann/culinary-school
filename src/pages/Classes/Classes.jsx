@@ -15,7 +15,7 @@ const Classes = () => {
         // Fetch the instructor's classes from the API
         const fetchInstructorClasses = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/classes/approved`);
+                const response = await fetch(`https://bangali-ranna.vercel.app/classes/approved`);
                 const data = await response.json();
                 setClasses(data);
             } catch (error) {
@@ -28,7 +28,7 @@ const Classes = () => {
     useEffect(() => {
         const fetchInstructorClasses = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/user/${user.email}`);
+                const response = await fetch(`https://bangali-ranna.vercel.app/user/${user.email}`);
                 const data = await response.json();
                 setDBuser(data);
             } catch (error) {
@@ -47,7 +47,7 @@ const Classes = () => {
 
         if (user && user.email) {
             const cartItem = { availableSeats, approved, name, image, instructor, price, email: user.email }
-            fetch('http://localhost:5000/carts', {
+            fetch('https://bangali-ranna.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

@@ -9,7 +9,7 @@ const Dashboard = () => {
         // Fetch all users from the database
         const fetchUsers = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/user/${user.email}`);
+                const response = await fetch(`https://bangali-ranna.vercel.app/user/${user.email}`);
                 const data = await response.json();
                 setCurrentUser(data);
             } catch (error) {

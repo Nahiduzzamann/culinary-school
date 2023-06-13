@@ -82,7 +82,7 @@ const CheckoutForm = ({ cart,price }) => {
             //     date: new Date(),
             //     itemNames: cart.map(item => item.name)
             // }
-            // const response = await fetch(`http://localhost:5000/carts/update/${classItem._id}`, {
+            // const response = await fetch(`https://bangali-ranna.vercel.app/carts/update/${classItem._id}`, {
             //     method: 'POST',
             //     headers: {
             //         'Content-Type': 'application/json',
