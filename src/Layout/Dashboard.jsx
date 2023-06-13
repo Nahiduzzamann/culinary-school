@@ -3,8 +3,8 @@ import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Dashboard = () => {
-    const {user} = useContext(AuthContext)
-    const [currentUser,setCurrentUser]= useState([]); //current user from DB
+    const { user } = useContext(AuthContext)
+    const [currentUser, setCurrentUser] = useState([]); //current user from DB
     useEffect(() => {
         // Fetch all users from the database
         const fetchUsers = async () => {
@@ -78,3 +78,9 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
+
+
+
+

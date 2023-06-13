@@ -47,30 +47,30 @@ const NavBar = () => {
 
     return (
 
-        <nav className='bg-gray-500 fixed top-0 left-0 right-0 z-50 shadow-xl'>
+        <nav className='bg-black opacity-70 fixed top-0 left-0 right-0 z-50 shadow-lg'>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <button onClick={toggleMenu} tabIndex={0} className="btn btn-ghost lg:hidden bg-gray-300">
+                        <div onClick={toggleMenu} tabIndex={0} className="btn btn-ghost lg:hidden bg-gray-300">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                        </button>
+                        </div>
                         {isOpen && <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li className='text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium'>
-                                <NavLink
+                            <li className='text-white hover:bg-gray-700 px-3 py-2 rounded-md font-medium'>
+                                <NavLink onClick={toggleMenu}
                                     to="/"
                                 >
                                     Home
                                 </NavLink>
                             </li>
-                            <li className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                                <NavLink
+                            <li className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-xl font-medium">
+                                <NavLink onClick={toggleMenu}
                                     to="/Instructors"
                                 >
                                     Instructors
                                 </NavLink>
                             </li>
-                            <li className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                                <NavLink
+                            <li className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-xl font-medium">
+                                <NavLink onClick={toggleMenu}
                                     to="/Classes"
 
                                 >
@@ -80,8 +80,8 @@ const NavBar = () => {
 
                             {
                                 user &&
-                                <li className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                                    <NavLink
+                                <li className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-xl font-medium">
+                                    <NavLink onClick={toggleMenu}
                                         to="/Dashboard"
 
                                     >
@@ -92,16 +92,16 @@ const NavBar = () => {
 
                         </ul>}
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">Culinary School</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-2xl">Culinary School</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li className="text-gray-300 hover:bg-gray-700 py-2 mx-2 rounded-md text-sm font-medium"><NavLink
+                        <li className="text-white hover:bg-gray-700 py-2 mx-2 rounded-md text-xl font-medium"><NavLink
                             to="/"
                         >
                             Home
                         </NavLink></li>
-                        <li className="text-gray-300 hover:bg-gray-700 py-2 mx-2 rounded-md text-sm font-medium">
+                        <li className="text-white hover:bg-gray-700 py-2 mx-2 rounded-md text-xl font-medium">
                             <NavLink
                                 to="/Instructors"
 
@@ -110,7 +110,7 @@ const NavBar = () => {
                             </NavLink>
                         </li>
 
-                        <li className="text-gray-300 hover:bg-gray-700 py-2 mx-2 rounded-md text-sm font-medium">
+                        <li className="text-white hover:bg-gray-700 py-2 mx-2 rounded-md text-xl font-medium">
                             <NavLink
                                 to="/Classes"
 
@@ -119,7 +119,7 @@ const NavBar = () => {
                             </NavLink></li>
                         {
                             user &&
-                            <li className="text-gray-300 hover:bg-gray-700 py-2 mx-2 rounded-md text-sm font-medium">
+                            <li className="text-white hover:bg-gray-700 py-2 mx-2 rounded-md text-xl font-medium">
                                 <NavLink
                                     to="/Dashboard"
 
@@ -153,7 +153,7 @@ const NavBar = () => {
                             </>
                             :
                             <>
-                                <Link to='login' className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Log In</Link>
+                                <Link to='login' className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-xl font-medium">Log In</Link>
                             </>
                     }
                 </div>
