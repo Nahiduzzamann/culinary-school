@@ -16,7 +16,6 @@ const PopularClassesSection = () => {
 
     fetchInstructorClasses();
   }, []);
-  console.log(classes)
   // const classes = [
   //   {
   //     id: 1,
