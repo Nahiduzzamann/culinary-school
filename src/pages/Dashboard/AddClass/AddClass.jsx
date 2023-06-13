@@ -38,7 +38,7 @@ const AddClass = () => {
   };
 
   return (
-    <div className="py-12 bg-gray-100">
+    <div className="py-12 w-full">
       <div className="container mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-8">Add a Class</h2>
         <form className="max-w-md mx-auto bg-white p-6 rounded shadow">
