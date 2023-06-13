@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CheckoutForm from './CheckoutForm';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import { useParams } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_PK)
 const Payment = () => {
-    const { value } = useParams();
-    const price = parseInt(value, 10);
-    // console.log(value);
+    const cart = useLoaderData();
+    const value = cart.price;
+    const price = parseFloat(value.toFixed(2))
+    console.log(price);
     return (
         <div>
             <h1 className='text-center text-3xl m-10'>Please Make Payment</h1>
             <Elements stripe={stripePromise}>
-                <CheckoutForm price={price}>
+                <CheckoutForm cart={cart} price={price}>
 
                 </CheckoutForm>
             </Elements>

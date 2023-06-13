@@ -52,8 +52,9 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children:[
             {
-                path:'payment/:value',
-                element:<Payment></Payment>
+                path:'payment/:id',
+                element:<Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/cart/${params.id}`)
             },
             {
                 path:'dashboard/selected-classes',

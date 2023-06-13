@@ -5,7 +5,8 @@ import './CheckoutForm.css'
 import { AuthContext } from "../../../providers/AuthProvider";
 
 
-const CheckoutForm = ({ cart, price }) => {
+const CheckoutForm = ({ cart,price }) => {
+    
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useContext(AuthContext)
@@ -15,14 +16,14 @@ const CheckoutForm = ({ cart, price }) => {
     const [transactionId, setTransactionId] = useState('');
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("/create-payment-intent", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ price}),
+        fetch('/create-payment-intent', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ price }),
         })
-          .then((res) => res.json())
-          .then((data) => setClientSecret(data.clientSecret));
-      }, [price]);
+            .then((res) => res.json())
+            .then((data) => setClientSecret(data.clientSecret));
+    }, []);
 
 
     const handleSubmit = async (event) => {
@@ -75,23 +76,21 @@ const CheckoutForm = ({ cart, price }) => {
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
             // save payment information to the server
-            const payment = {
-                email: user?.email,
-                transactionId: paymentIntent.id,
-                price,
-                date: new Date(),
-                cartItems: cart.map(item => item._id),
-                menuItems: cart.map(item => item.menuItemId),
-                status: 'service pending',
-                itemNames: cart.map(item => item.name)
-            }
-            // axiosSecure.post('/payments', payment)
-            //     .then(res => {
-            //         console.log(res.data);
-            //         if (res.data.result.insertedId) {
-            //             // display confirm
-            //         }
-            //     })
+            // const payment = {
+            //     email: user?.email,
+            //     transactionId: paymentIntent.id,
+            //     price,
+            //     date: new Date(),
+            //     itemNames: cart.map(item => item.name)
+            // }
+            const response = await fetch(`http://localhost:5000/carts/update/${classItem._id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ isPayment: true }),
+            });
+            const data = await response.json();
         }
 
 

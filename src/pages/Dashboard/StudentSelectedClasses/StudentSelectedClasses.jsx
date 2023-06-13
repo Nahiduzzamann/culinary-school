@@ -59,7 +59,7 @@ const StudentSelectedClasses = () => {
                                 >
                                     Delete
                                 </button>
-                                <Link to={`/Dashboard/payment/${classItem.price}`}>
+                                <Link to={`/Dashboard/payment/${classItem._id}`}>
                                 <button className="btn btn-primary">Pay</button>
 
                                 </Link>
