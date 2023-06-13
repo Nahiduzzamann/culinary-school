@@ -85,7 +85,7 @@ const Classes = () => {
 
         if (user && user.email) {
             const cartItem = { availableSeats, approved, name, image, instructor, price, email: user.email }
-            fetch('http://localhost:5000/carts', {
+            fetch('https://bangali-ranna.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

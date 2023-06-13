@@ -57,7 +57,7 @@ const Registration = () => {
                     updateUser(info)
                         .then((result) => {
                             const saveUser = { name: name, email: email }
-                            fetch('http://localhost:5000/users', {
+                            fetch('https://bangali-ranna.vercel.app/users', {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json'

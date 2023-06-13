@@ -37,7 +37,7 @@ const Login = () => {
                 const saveUser = { name: user.displayName, email: user.email }
                 setIsLoading(false);
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://bangali-ranna.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -153,7 +153,7 @@ export default Login;
 //             const result = await signInWithGoogle();
 //             const user = result.user;
 //             const saveUser = { name: user.displayName, email: user.email };
-//             await fetch('http://localhost:5000/users', {
+//             await fetch('https://bangali-ranna.vercel.app/users', {
 //                 method: 'POST',
 //                 headers: {
 //                     'content-type': 'application/json'

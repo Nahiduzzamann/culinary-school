@@ -3,12 +3,12 @@ import { useQuery } from '@tanstack/react-query';
 
 const ManageUsers = () => {
   const { data: users = [], refetch } = useQuery(['users'], async () => {
-    const res = await fetch('http://localhost:5000/users');
+    const res = await fetch('https://bangali-ranna.vercel.app/users');
     return res.json();
   });
 
   const handleMakeInstructor = async (userId) => {
-    fetch(`http://localhost:5000/users/${userId}`, {
+    fetch(`https://bangali-ranna.vercel.app/users/${userId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const ManageUsers = () => {
   };
 
   const handleMakeAdmin = async (userId) => {
-    fetch(`http://localhost:5000/users/${userId}`, {
+    fetch(`https://bangali-ranna.vercel.app/users/${userId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
