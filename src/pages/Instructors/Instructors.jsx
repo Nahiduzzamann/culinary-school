@@ -17,6 +17,7 @@ const Instructors = () => {
 
     fetchInstructorClasses();
   }, []);
+  console.log(instructors)
   // const instructors = [
   //   {
   //     id: 1,

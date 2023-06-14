@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const StudentSelectedClasses = () => {
   const [cart, refetch] = useCart();
-
+// console.log(cart)
   const handleDelete = (classItem) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -45,10 +45,10 @@ const StudentSelectedClasses = () => {
                 className={`bg-white p-6 rounded shadow ${classItem.availableSeats === 0 ? 'bg-red-100' : ''}`}
               >
                 <div className="font-semibold mb-2">Name:</div>
-                <div>{classItem.name}</div>
+                <div>{classItem.className}</div>
 
                 <div className="font-semibold mb-2">Instructor:</div>
-                <div>{classItem.instructor}</div>
+                <div>{classItem.instructorName}</div>
 
                 <div className="font-semibold mb-2">Available Seats:</div>
                 <div>{classItem.availableSeats}</div>

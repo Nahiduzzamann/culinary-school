@@ -6,9 +6,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_PK)
 const Payment = () => {
     const cart = useLoaderData();
-    const value = cart.price;
-    const price = parseFloat(value.toFixed(2))
-    console.log(price);
+    const price = cart.price;
     return (
         <div>
             <h1 className='text-center text-3xl m-10'>Please Make Payment</h1>

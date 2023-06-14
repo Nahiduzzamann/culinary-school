@@ -11,6 +11,8 @@ const Classes = () => {
     const [, refetch] = useCart()
     const [classes, setClasses] = useState([])
     const [dBuser, setDBuser] = useState([])
+    // console.log(cart)
+    
     useEffect(() => {
         // Fetch the instructor's classes from the API
         const fetchInstructorClasses = async () => {
@@ -39,14 +41,15 @@ const Classes = () => {
         fetchInstructorClasses();
     }, [user]);
     const handleSelectClass = (classItem) => {
-        const { availableSeats, approved, name, image, instructor, price } = classItem
+        // console.log(classItem)
+        const { availableSeats, classImage, className, instructorEmail, instructorName, price ,status} = classItem
         if (!user) {
             alert('Please log in to select the course.');
             return;
         }
 
         if (user && user.email) {
-            const cartItem = { availableSeats, approved, name, image, instructor, price, email: user.email }
+            const cartItem = { availableSeats, classImage, className, instructorEmail, instructorName, price ,status, email: user.email }
             fetch('https://bangali-ranna.vercel.app/carts', {
                 method: 'POST',
                 headers: {
@@ -101,7 +104,7 @@ const Classes = () => {
                             type="button"
                             className="btn btn-primary w-full mt-4"
                             onClick={() => handleSelectClass(classItem)}
-                            disabled={classItem.availableSeats === 0 || dBuser.user?.role === 'admin' || dBuser.user?.role === 'instructor'}
+                            disabled={classItem.availableSeats === 0 || dBuser.user?.role === 'admin' || dBuser.user?.role === 'instructor' }
                         >
                             {classItem.availableSeats === 0 ? 'No Seats Available' : 'Select'}
                         </button>

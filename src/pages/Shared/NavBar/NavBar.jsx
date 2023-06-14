@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const NavBar = () => {
@@ -17,8 +17,8 @@ const NavBar = () => {
     const handleLogout = () => {
         logOut()
             .then(result => {
-                const user = result.user;
-                navigate(from, { replace: true })
+                // const user = result.user;
+                Navigate(from, { replace: true })
             })
             .catch(error => console.log(error.message))
     }
