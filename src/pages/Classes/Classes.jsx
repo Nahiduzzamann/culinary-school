@@ -84,7 +84,7 @@ const Classes = () => {
         }
     };
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto pt-20 pb-20">
             <h2 className="text-3xl font-semibold text-center mb-8 mt-20">Classes</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {classes.map(classItem => (

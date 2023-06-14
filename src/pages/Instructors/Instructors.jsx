@@ -63,7 +63,7 @@ const Instructors = () => {
   // ];
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto pt-20 pb-20">
       <h2 className="text-3xl font-semibold text-center mb-8 mt-20">Our Instructors</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {instructors.map(instructor => (
